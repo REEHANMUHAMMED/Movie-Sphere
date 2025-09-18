@@ -19,7 +19,7 @@ return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           
           {/* Left: Logo */}
-          <div onClick={()=> navigate("/")} className="text-white font-bold text-xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400">
+          <div onClick={()=> navigate("/")} className="text-red-600 font-bold text-xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400">
            MovieSphere
           </div>
 
