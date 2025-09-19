@@ -136,7 +136,7 @@ return (
               onClick={() =>
                 alert(`⏰ Added to Watch Later: ${currentMovie.title}`)
               }
-              className="cursor-pointer bg-transparent hover:bg-gray-700/50 text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-md transition-all duration-300 ease-out flex items-center font-semibold border-2 border-gray-400 hover:border-gray-300 text-xs sm:text-sm md:text-base hover:scale-105"
+              className="cursor-pointer bg-transparent hover:bg-gray-700/50 text-red-400 px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-md transition-all duration-300 ease-out flex items-center font-semibold border-2 border-gray-400 hover:border-gray-300 text-xs sm:text-sm md:text-base hover:scale-105"
             >
               <svg
                 className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2"
@@ -194,19 +194,13 @@ return (
             opacity: 1;
           }
         }
-        
+       
         .animate-slide-in {
           animation: slideIn 0.8s ease-out;
         }
       `}</style>
     </div>
   );
-
-
-
-
-
-
 };
 
 
