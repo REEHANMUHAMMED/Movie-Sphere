@@ -1,6 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from 'react';
-import HeaderSection from '../../components/HeaderSection';
+import HeaderSection from '../../components/header-section/HeaderSection.jsx';
 import Comments from './components/Comments';
 import MovieInfo from './components/MovieInfo';
 import Recommendation from './components/Recommendations';
@@ -62,8 +61,6 @@ const MovieDetails = () => {
     }
   ];
 
-
-  // let movie = movie2;
 
   // console.log({movie})
 

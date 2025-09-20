@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 // import { newSeries, recentlyUpdated, newMovies,trendingMovies, recommendedContent} from '../../constants';
-import HeaderSection from '../../components/HeaderSection';
+import HeaderSection from '../../components/header-section/HeaderSection.jsx';
 import HeroSection from './components/HeroSection';
 import SectionMain from './components/SectionMain';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 
 
 // Main App Component
@@ -32,36 +31,377 @@ const Home = () => {
     });
   },[])
 
-  return (
-    <div className="min-h-screen bg-gray-900">
+
+return (
+  <div className="relative min-h-screen overflow-hidden">
+    {/* Dynamic Background with Multiple Sources */}
+    <div 
+      className="absolute inset-0 transition-all duration-1000 ease-in-out"
+      style={{
+        backgroundImage: trendingMovies[0]?.poster 
+          ? `url(${trendingMovies[0].poster})` 
+          : newMovies[0]?.poster 
+            ? `url(${newMovies[0].poster})`
+            : 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
+      }}
+    />
+
+    {/* Multi-Layer Background Overlay System (Same as Movie Details) */}
+    <div className="absolute inset-0 bg-black/80"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/75"></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-transparent to-black/70"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/90"></div>
+
+    {/* Animated Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-purple-900/20 animate-pulse"></div>
+
+    {/* Content Container */}
+    <div className="relative z-10">
       <HeaderSection />
       <HeroSection />
 
-      {/* Recently Updated Section */}
-      <div className="px-6 py-6 z-10 max-w-7xl mx-auto">
-        <h2 className="text-red-400 text-xl font-bold mb-4">Recently Updated</h2>    
-        <div className="flex space-x-4 overflow-x-auto">
-          {recentlyUpdated.map((item, index) => (
-            <div onClick={() => { navigate(`/movie/${item.id}`) }}  key ={index} className="flex items-center space-x-3 bg-gray-800 rounded-lg p-3 min-w-max cursor-pointer hover:shadow-2xl transform hover:scale-95 transition-all duration-300 shadow-lg overflow-hidden ">
-              <div style={{ backgroundImage: item.poster ? `url(${item.poster})` : undefined }} className="w-14 h-12 bg-gray-600 rounded flex-shrink-0"></div>
-              <div>
-                <h3 className="text-white text-sm font-medium">{item.title}</h3>
-                <p className="text-gray-400 text-xs">{item.director}</p>
-                <p className="text-gray-500 text-xs">{item.year}</p>
+      {/* Main Content with Glass Effect Background */}
+      <div className="relative">
+        {/* Recently Updated Section */}
+        <section className="px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+          <div className="max-w-7xl mx-auto">
+            {/* Section Header with Glass Effect */}
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-6 border border-white/10">
+              <h2 className="text-red-400 text-lg sm:text-xl lg:text-2xl font-bold drop-shadow-lg">
+                Recently Updated
+              </h2>
+            </div>
+            
+            {/* Scrollable Cards Container */}
+            <div className="overflow-x-auto pb-4">
+              <div className="flex space-x-3 sm:space-x-4 min-w-max">
+                {recentlyUpdated.map((item, index) => (
+                  <div 
+                    key={index}
+                    onClick={() => navigate(`/movie/${item.id}`)}
+                    className="group relative bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-4 min-w-max cursor-pointer transition-all duration-500 ease-out hover:bg-black/70 hover:border-red-500/50 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25"
+                    style={{
+                      minWidth: "280px",
+                      maxWidth: "320px"
+                    }}
+                  >
+                    <div className="flex items-center space-x-3 sm:space-x-4">
+                      {/* Movie Poster with Overlay */}
+                      <div className="relative flex-shrink-0 overflow-hidden rounded-lg">
+                        {item.poster ? (
+                          <img
+                            src={item.poster}
+                            alt={item.title}
+                            className="w-14 sm:w-16 lg:w-18 h-12 sm:h-14 lg:h-16 object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        ) : (
+                          <div className="w-14 sm:w-16 lg:w-18 h-12 sm:h-14 lg:h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">{item.title?.charAt(0)}</span>
+                          </div>
+                        )}
+                        {/* Image Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
+                      
+                      {/* Movie Information */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-white text-sm sm:text-base font-semibold drop-shadow-sm truncate group-hover:text-red-300 transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-300 text-xs sm:text-sm drop-shadow-sm truncate">
+                          {item.director}
+                        </p>
+                        <p className="text-gray-400 text-xs drop-shadow-sm">
+                          {item.year}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Hover Glow Effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-purple-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+        </section>
+
+        {/* Section Components with Enhanced Backgrounds */}
+        <div className="space-y-8 sm:space-y-12 lg:space-y-16">
+          <div className="bg-black/30 backdrop-blur-sm border-t border-white/10">
+            <SectionMain title="Trending" movies={trendingMovies} isLarge={true} />
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm">
+            <SectionMain title="New Release - Movies" movies={newMovies} />
+          </div>
+          
+          <div className="bg-black/30 backdrop-blur-sm">
+            <SectionMain title="New Release - Series" movies={newSeries} />
+          </div>
+          
+          <div className="bg-black/25 backdrop-blur-sm border-b border-white/10 pb-8 sm:pb-12 lg:pb-16">
+            <SectionMain title="Recommended" movies={recommendedContent} />
+          </div>
         </div>
       </div>
-
-      
-
-      <SectionMain title="Trending" movies={trendingMovies} isLarge={true} />
-      <SectionMain title="New Release - Movies" movies={newMovies} />
-      <SectionMain title="New Release - Series" movies={newSeries} />
-      <SectionMain title="Recommended" movies={recommendedContent} />
     </div>
-  );
+
+    {/* Bottom Fade Gradient */}
+    <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 lg:h-48 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-20"></div>
+
+    {/* Professional Responsive Styles */}
+    <style jsx>{`
+      /* Ultra Small Mobile (320px and below) */
+      @media (max-width: 320px) {
+        .section-container {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+        
+        .recently-updated-card {
+          min-width: 240px;
+          padding: 0.75rem;
+        }
+        
+        .movie-poster-small {
+          width: 48px;
+          height: 40px;
+        }
+        
+        .section-title {
+          font-size: 1rem;
+        }
+      }
+
+      /* Small Mobile Portrait (321px - 480px) */
+      @media (min-width: 321px) and (max-width: 480px) {
+        .section-spacing {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
+        
+        .recently-updated-card {
+          min-width: 260px;
+        }
+        
+        .movie-poster-small {
+          width: 56px;
+          height: 48px;
+        }
+      }
+
+      /* Mobile Landscape (max-height: 500px in landscape) */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero-section {
+          height: 60vh;
+        }
+        
+        .section-spacing {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+        
+        .recently-updated-card {
+          padding: 0.5rem 0.75rem;
+        }
+        
+        .background-attachment {
+          background-attachment: scroll !important;
+        }
+      }
+
+      /* Tablet Portrait (481px - 768px) */
+      @media (min-width: 481px) and (max-width: 768px) {
+        .section-container {
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+        }
+        
+        .recently-updated-card {
+          min-width: 300px;
+          padding: 1rem;
+        }
+        
+        .section-spacing {
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+        }
+      }
+
+      /* Tablet Landscape (769px - 1024px) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .section-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .recently-updated-container {
+          overflow-x: visible;
+        }
+        
+        .recently-updated-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1rem;
+        }
+      }
+
+      /* Desktop (1025px - 1440px) */
+      @media (min-width: 1025px) and (max-width: 1440px) {
+        .max-container {
+          max-width: 1280px;
+        }
+        
+        .section-spacing {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+        
+        .recently-updated-card:hover {
+          transform: translateY(-4px) scale(1.02);
+        }
+      }
+
+      /* Large Desktop (1441px and above) */
+      @media (min-width: 1441px) {
+        .max-container {
+          max-width: 1536px;
+        }
+        
+        .section-spacing {
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+        
+        .recently-updated-card {
+          min-width: 320px;
+          max-width: 360px;
+        }
+      }
+
+      /* High DPI Displays */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .backdrop-blur {
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .background-image {
+          background-size: cover;
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+        }
+      }
+
+      /* Dark Mode Support */
+      @media (prefers-color-scheme: dark) {
+        .glass-effect {
+          background-color: rgba(0, 0, 0, 0.6);
+          border-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      /* Reduced Motion Support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        
+        .background-attachment {
+          background-attachment: scroll !important;
+        }
+      }
+
+      /* Enhanced Touch Targets for Mobile */
+      @media (max-width: 768px) {
+        .touch-target {
+          min-height: 44px;
+          min-width: 44px;
+        }
+        
+        .recently-updated-card {
+          min-height: 80px;
+        }
+        
+        /* Better active states */
+        .recently-updated-card:active {
+          transform: scale(0.98);
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        .background-overlay,
+        .background-image,
+        .backdrop-blur {
+          display: none !important;
+        }
+        
+        .text-content {
+          color: black !important;
+          background: white !important;
+        }
+      }
+
+      /* Custom Scrollbar for Recently Updated Section */
+      .recently-updated-scroll::-webkit-scrollbar {
+        height: 6px;
+      }
+      
+      .recently-updated-scroll::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+      }
+      
+      .recently-updated-scroll::-webkit-scrollbar-thumb {
+        background: rgba(239, 68, 68, 0.6);
+        border-radius: 3px;
+      }
+      
+      .recently-updated-scroll::-webkit-scrollbar-thumb:hover {
+        background: rgba(239, 68, 68, 0.8);
+      }
+
+      /* Smooth Performance Optimizations */
+      .gpu-accelerated {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+      
+      .will-change-transform {
+        will-change: transform;
+      }
+      
+      .will-change-opacity {
+        will-change: opacity;
+      }
+    `}</style>
+  </div>
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
 
 

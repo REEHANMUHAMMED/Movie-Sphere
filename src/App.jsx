@@ -4,6 +4,7 @@ import MovieDetails from './pages/movie-details/MovieDetails.jsx';
 import SearchList from './pages/search-list/SearchList.jsx';
 
 
+
 function App() {
   return (
        <>

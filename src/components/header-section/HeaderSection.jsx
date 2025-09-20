@@ -1,17 +1,6 @@
-
-
-
-
-
-
-
-
-// };
-
-// export default HeaderSection;
-
 import React, { useState, useEffect } from 'react';
 import { Search, Menu, X } from 'lucide-react';
+import './header.css'
 
 const HeaderSection = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -215,78 +204,8 @@ const HeaderSection = ({ onSearch }) => {
             </div>
           </div>
         </>
-      )}
-
-      {/* Enhanced responsive styles */}
-      <style jsx>{`
-        /* Mobile landscape optimization */
-        @media screen and (max-height: 500px) and (orientation: landscape) {
-          .mobile-drawer-content {
-            padding: 1rem 0.5rem;
-          }
-          
-          .mobile-drawer-content > * {
-            margin-bottom: 0.5rem;
-          }
-          
-          .mobile-nav-link {
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-          }
-          
-          .mobile-logo {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-          }
-        }
-
-        /* Enhanced touch interactions */
-        @media (max-width: 1023px) {
-          .touch-target {
-            min-height: 44px;
-            min-width: 44px;
-          }
-          
-          /* Better active states for mobile */
-          .mobile-nav-item:active {
-            background-color: rgba(239, 68, 68, 0.2) !important;
-            color: rgb(248, 113, 113) !important;
-            transform: scale(0.98) !important;
-          }
-        }
-
-        /* Tablet specific optimizations */
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-          .tablet-spacing {
-            padding: 2rem 1.5rem;
-          }
-          
-          .tablet-nav-link {
-            padding: 1rem 1.25rem;
-            font-size: 1rem;
-          }
-        }
-
-        /* Small mobile optimizations */
-        @media screen and (max-width: 374px) {
-          .small-mobile-content {
-            padding: 0.5rem;
-          }
-          
-          .small-mobile-text {
-            font-size: 0.875rem;
-          }
-        }
-
-        /* Ensure smooth animations across all devices */
-        * {
-          -webkit-tap-highlight-color: rgba(239, 68, 68, 0.1);
-        }
-        
-        .transition-smooth {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-      `}</style>
+      )}    
+      
     </>
   );
 };

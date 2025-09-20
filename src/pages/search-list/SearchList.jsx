@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import HeaderSection from '../../components/HeaderSection';
+import HeaderSection from '../../components/header-section/HeaderSection.jsx';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import MovieCard from "../../../components/MovieCard";
+import MovieCard from "../../../components/movie-card/MovieCard";
 
 const SectionMain = ({ title, movies, isLarge = false }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
