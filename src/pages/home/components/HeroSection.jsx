@@ -71,136 +71,297 @@ const currentMovie = heroMovies[currentSlide];
   }, []);  
 
 
+
+
 return (
-    <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] 2xl:h-[480px] flex items-center justify-start overflow-hidden">
-      {/* Background Layer - Your exact code */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
-        style={{
-          backgroundImage: `url(${currentMovie.imageUrl})`,
-          backgroundPosition: "top",
-        }}
-      />
+  <div className="relative h-[100vh] sm:h-[550px] md:h-[650px] lg:h-[550px] xl:h-[650px] 2xl:h-[700px] flex items-center justify-start overflow-hidden">
+    {/* Background Image Layer with Enhanced Transitions */}
+    <div
+      className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105"
+      style={{
+        backgroundImage: `url(${currentMovie.imageUrl})`,
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
+      }}
+    />
 
-      {/* Perfect Linear Gradient Overlay - Multi-layered for cinematic effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent transition-opacity duration-1000 ease-in-out"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 transition-opacity duration-1000 ease-in-out"></div>
+    {/* Professional Multi-Layer Overlay System - Same as Movie Detail Page */}
+    <div className="absolute inset-0 bg-black/10 transition-opacity duration-1000"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/70 transition-opacity duration-1000"></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent transition-opacity duration-1000"></div>
+    
+    {/* Additional Cinematic Overlays */}
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80"></div>
+    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
 
-      {/* Foreground Content - Your exact code with smooth transitions */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl text-left">
-          {/* Title - Adding smooth transition only */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-tight transition-all duration-800 ease-out transform translate-y-0 opacity-100">
-            {currentMovie.title}
-          </h1>
+    {/* Foreground Content with Enhanced Typography */}
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
+      <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-left">
+        
+        {/* Enhanced Title with Better Readability */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-2xl transition-all duration-800 ease-out transform translate-y-0 opacity-100">
+          {currentMovie.title}
+        </h1>
 
-          {/* Genre + Info - Your exact code with transition */}
-          <div className="flex flex-wrap items-center gap-1 sm:gap-2 md:gap-3 mb-2 sm:mb-3 md:mb-4 transition-all duration-600 delay-200 ease-out transform translate-y-0 opacity-100">
-            {currentMovie.genres.map((genre, index) => (
-              <span
-                key={index}
-                className="bg-gray-700/80 text-white px-2 py-1 sm:px-3 rounded text-xs sm:text-sm border border-gray-600 transition-all duration-300 ease-out"
-              >
-                {genre}
-              </span>
-            ))}
-            <span className="text-yellow-400 flex items-center text-xs sm:text-sm">
-              <svg
-                className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              {currentMovie.year}
-            </span>
-            <span className="text-white text-xs sm:text-sm hidden sm:inline">
-              {currentMovie.duration}
-            </span>
-            <div className="flex items-center">
-              <Star className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-400 fill-current" />
-              <span className="text-white ml-1 text-xs sm:text-sm">
-                {currentMovie.rating}
-              </span>
-            </div>
-          </div>
-
-          {/* Description - Your exact code with transition */}
-          <p className="text-white/90 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8 leading-relaxed line-clamp-2 sm:line-clamp-3 max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
-            {currentMovie.description}
-          </p>
-
-          {/* Button - Your exact code with transition */}
-          <div className="flex space-x-2 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
-            <button
-              onClick={() =>
-                alert(`⏰ Added to Watch Later: ${currentMovie.title}`)
-              }
-              className="cursor-pointer bg-transparent hover:bg-gray-700/50 text-red-400 px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-md transition-all duration-300 ease-out flex items-center font-semibold border-2 border-gray-400 hover:border-gray-300 text-xs sm:text-sm md:text-base hover:scale-105"
+        {/* Enhanced Genre + Info Section with Better Cards */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 md:mb-6 transition-all duration-600 delay-200 ease-out transform translate-y-0 opacity-100">
+          {currentMovie.genres.map((genre, index) => (
+            <span
+              key={index}
+              className="bg-black/40 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ease-out hover:bg-red-600/80 hover:border-red-500/50 hover:scale-105"
             >
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-              <span className="hidden sm:inline">View More</span>
-              <span className="sm:hidden">View</span>
-            </button>
+              {genre}
+            </span>
+          ))}
+          
+          {/* Rating Badge */}
+          <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center space-x-1 sm:space-x-2">
+            <svg
+              className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="text-white font-semibold text-xs sm:text-sm">{currentMovie.rating}</span>
+          </div>
+          
+          {/* Year Badge */}
+          <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
+            <span className="text-white font-medium text-xs sm:text-sm">{currentMovie.year}</span>
+          </div>
+          
+          {/* Duration Badge - Hidden on small screens */}
+          <div className="hidden sm:flex bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
+            <span className="text-white font-medium text-xs sm:text-sm">{currentMovie.duration}</span>
           </div>
         </div>
-      </div>     
 
-      {/* Slide Indicators - Your exact code with smooth transitions */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10">
-        {heroMovies.map((_, index) => (
+        {/* Enhanced Description with Better Readability */}
+        <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
+          <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-4 drop-shadow-lg">
+            {currentMovie.description}
+          </p>
+        </div>
+
+        {/* Enhanced Action Buttons */}
+        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
           <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-500 ease-out hover:scale-110 ${
-              index === currentSlide
-                ? "w-6 h-2 sm:w-8 sm:h-3 bg-red-500 rounded-full"
-                : "w-2 h-2 sm:w-3 sm:h-3 bg-white/60 hover:bg-white/80 rounded-full"
-            }`}
-          />
-        ))}
+            onClick={() => alert(`⏰ Added to Watch Later: ${currentMovie.title}`)}
+            className="group bg-red-600 hover:bg-red-700 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50"
+          >
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Watch Now</span>
+          </button>
+          
+          <button
+            onClick={() => alert(`📋 Added to Watchlist: ${currentMovie.title}`)}
+            className="group bg-black/40 backdrop-blur-sm hover:bg-black/60 border border-white/20 hover:border-white/40 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105"
+          >
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 4v16m8-8H4" />
+            </svg>
+            <span className="hidden sm:inline">Add to Watchlist</span>
+            <span className="sm:hidden">Watchlist</span>
+          </button>
+        </div>
       </div>
-
-      {/* Progress Bar - Your exact code with smooth transition */}
-      <div className="absolute bottom-0 left-0 w-full h-0.5 sm:h-1 bg-gray-800/60 z-10">
-        <div
-          className="h-full bg-red-600 transition-all duration-300 ease-linear"
-          style={{
-            width: `${((currentSlide + 1) / heroMovies.length) * 100}%`,
-          }}
-        />
-      </div>
-
-      {/* Custom CSS for slide transitions */}
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            transform: translateX(-20px);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-       
-        .animate-slide-in {
-          animation: slideIn 0.8s ease-out;
-        }
-      `}</style>
     </div>
-  );
+
+    {/* Enhanced Slide Indicators */}
+    <div className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10">
+      {heroMovies.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentSlide(index)}
+          className={`transition-all duration-500 ease-out hover:scale-125 ${
+            index === currentSlide
+              ? "w-8 h-3 sm:w-10 sm:h-4 bg-red-500 rounded-full shadow-lg shadow-red-500/50"
+              : "w-3 h-3 sm:w-4 sm:h-4 bg-white/50 hover:bg-white/80 rounded-full backdrop-blur-sm"
+          }`}
+        />
+      ))}
+    </div>
+
+    {/* Enhanced Progress Bar */}
+    <div className="absolute bottom-0 left-0 w-full h-1 sm:h-1.5 bg-black/40 backdrop-blur-sm z-10">
+      <div
+        className="h-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg shadow-red-500/30 transition-all duration-300 ease-linear"
+        style={{
+          width: `${((currentSlide + 1) / heroMovies.length) * 100}%`,
+        }}
+      />
+    </div>
+
+    {/* Bottom Fade Effect */}
+    <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-black/90 to-transparent pointer-events-none"></div>
+
+    {/* Enhanced Responsive Styles */}
+    <style jsx>{`
+      /* Ultra responsive breakpoints */
+      
+      /* Extra small devices */
+      @media (max-width: 320px) {
+        .hero-title {
+          font-size: 1.5rem;
+          line-height: 1.3;
+        }
+        .hero-container {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Small mobile landscape */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero-section {
+          height: 350px;
+        }
+        .hero-content {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+        .hero-description {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+
+      /* Medium mobile */
+      @media (min-width: 375px) and (max-width: 474px) {
+        .hero-button {
+          padding: 0.875rem 1.25rem;
+          font-size: 0.875rem;
+        }
+      }
+
+      /* Large mobile */
+      @media (min-width: 475px) and (max-width: 639px) {
+        .hero-title {
+          font-size: 2.25rem;
+        }
+        .hero-description {
+          font-size: 1rem;
+        }
+      }
+
+      /* Tablet portrait */
+      @media (min-width: 640px) and (max-width: 767px) {
+        .hero-section {
+          height: 400px;
+        }
+        .hero-content {
+          max-width: 28rem;
+        }
+      }
+
+      /* Tablet landscape */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .hero-section {
+          height: 500px;
+        }
+        .hero-content {
+          max-width: 36rem;
+        }
+      }
+
+      /* Desktop */
+      @media (min-width: 1024px) {
+        .hero-section {
+          height: 600px;
+        }
+      }
+
+      /* Large desktop */
+      @media (min-width: 1280px) {
+        .hero-section {
+          height: 700px;
+        }
+        .hero-content {
+          max-width: 48rem;
+        }
+      }
+
+      /* 4K and large screens */
+      @media (min-width: 1920px) {
+        .hero-section {
+          height: 800px;
+        }
+        .hero-title {
+          font-size: 5rem;
+        }
+      }
+
+      /* Smooth animations */
+      @keyframes slideInFromLeft {
+        from {
+          transform: translateX(-30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Performance optimizations */
+      .hero-background {
+        will-change: transform;
+        transform: translateZ(0);
+      }
+
+      .hero-overlay {
+        will-change: opacity;
+      }
+
+      /* High DPI optimization */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .hero-background {
+          background-attachment: scroll;
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    `}</style>
+  </div>
+);
+
+
+
+
+
 };
 
 

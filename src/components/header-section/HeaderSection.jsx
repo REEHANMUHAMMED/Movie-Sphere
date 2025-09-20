@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './header.css'
 
 const HeaderSection = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   // Handle scroll effect for header transparency
   useEffect(() => {
@@ -60,11 +62,15 @@ const HeaderSection = ({ onSearch }) => {
             
             {/* Logo */}
             <div 
-              onClick={() => navigate("/")} 
-              className="text-red-600 font-bold text-lg sm:text-xl lg:text-2xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400"
-            >
-              MovieSphere
-            </div>
+  onClick={(e) => {
+    e.preventDefault();
+    console.log('Desktop logo clicked'); // Remove after testing
+    window.location.href = '/';
+  }}
+  className="text-red-600 font-bold text-lg sm:text-xl lg:text-2xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400"
+>
+  MovieSphere
+</div>
 
             {/* Desktop Navigation - Hidden on mobile/tablet */}
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 flex-1 justify-center">
@@ -165,16 +171,38 @@ const HeaderSection = ({ onSearch }) => {
                   </div>
 
                   {/* Search bar - responsive sizing */}
-                  <div className="relative w-full group">
+                  {/* <div className="relative w-full group">
                     <input
                       type="text"
-                      placeholder="Search movies..."
+                      placeholder="fdfdSearch movies..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="bg-white rounded-full px-4 py-2.5 sm:py-3 pr-10 w-full text-black text-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 ease-out focus:scale-105 focus:shadow-lg focus:shadow-red-500/30 border border-gray-300 hover:border-red-300"
                     />
                     <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 transition-all duration-300 group-focus-within:text-red-500 group-focus-within:scale-110" />
-                  </div>
+                  </div> */}
+
+                 
+<div className="relative w-full group">
+  <input
+    type="text"
+    placeholder="Search movies..."
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    onFocus={() => {
+      navigate("/search");
+      setIsMobileMenuOpen(false);
+    }}
+    className="bg-white rounded-full px-4 py-2.5 sm:py-3 pr-10 w-full text-black text-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 ease-out focus:scale-105 focus:shadow-lg focus:shadow-red-500/30 border border-gray-300 hover:border-red-300 cursor-pointer"
+  />
+  <Search 
+    onClick={() => {
+      navigate("/search");
+      setIsMobileMenuOpen(false);
+    }}
+    className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 transition-all duration-300 group-focus-within:text-red-500 group-focus-within:scale-110 cursor-pointer hover:text-red-500 hover:scale-125" 
+  />
+</div>
 
                   {/* Navigation Links - responsive spacing */}
                   <nav className="flex flex-col space-y-1 mt-2 sm:mt-4">
@@ -208,6 +236,11 @@ const HeaderSection = ({ onSearch }) => {
       
     </>
   );
+
+
+
+
+  
 };
 
 export default HeaderSection;
