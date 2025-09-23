@@ -147,8 +147,8 @@ return (
 
         {/* Enhanced Action Buttons */}
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
-          <button
-            onClick={() => alert(`⏰ Added to Watch Later: ${currentMovie.title}`)}
+          <button     onClick={() => navigate("/watchnow")}
+            // onClick={() => alert(`⏰ Added to Watch Later: ${currentMovie.title}`)}
             className="group bg-red-600 hover:bg-red-700 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50"
           >
             <svg

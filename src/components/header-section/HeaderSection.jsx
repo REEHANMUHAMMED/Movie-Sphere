@@ -52,13 +52,13 @@ const HeaderSection = ({ onSearch }) => {
   return (
     <>
       {/* Fixed Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      <header className={`h-20 md:h-25 sm:h-auto pt-2 sm:pt-4 fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled 
           ? 'bg-black/50 backdrop-blur-lg shadow-2xl' 
           : 'bg-black/75 backdrop-blur-md'
       }`}>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 ">
             
             {/* Logo */}
             <div 
@@ -69,7 +69,13 @@ const HeaderSection = ({ onSearch }) => {
   }}
   className="text-red-600 font-bold text-lg sm:text-xl lg:text-2xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400"
 >
-  MovieSphere
+
+<img 
+  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto" 
+  src="src/components/header-section/logo.png" 
+  alt="Logo"
+/>
+
 </div>
 
             {/* Desktop Navigation - Hidden on mobile/tablet */}
@@ -170,17 +176,7 @@ const HeaderSection = ({ onSearch }) => {
                     MovieSphere
                   </div>
 
-                  {/* Search bar - responsive sizing */}
-                  {/* <div className="relative w-full group">
-                    <input
-                      type="text"
-                      placeholder="fdfdSearch movies..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="bg-white rounded-full px-4 py-2.5 sm:py-3 pr-10 w-full text-black text-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 ease-out focus:scale-105 focus:shadow-lg focus:shadow-red-500/30 border border-gray-300 hover:border-red-300"
-                    />
-                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 transition-all duration-300 group-focus-within:text-red-500 group-focus-within:scale-110" />
-                  </div> */}
+                 
 
                  
 <div className="relative w-full group">
@@ -223,7 +219,7 @@ const HeaderSection = ({ onSearch }) => {
 
                   {/* Login section - responsive spacing */}
                   <div className="text-white hover:text-red-500 cursor-pointer transition-all duration-300 ease-out py-3 sm:py-4 text-center border-t border-gray-700/30 pt-4 hover:bg-red-500/10 rounded-lg relative group mt-2 sm:mt-4 active:bg-red-500/20 active:scale-98">
-                    <span className="relative z-10 text-base sm:text-lg font-semibold transition-all duration-300 group-hover:scale-105">Login/Signup</span>
+                    <span  onClick={() => navigate("/signup")} className="relative z-10 text-base sm:text-lg font-semibold transition-all duration-300 group-hover:scale-105">Login/Signup</span>
                     <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-red-500/10 to-red-600/10 opacity-0 transition-all duration-300 group-hover:opacity-100 blur-sm"></span>
                     <span className="absolute inset-0 rounded-lg border border-red-500/20 opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                   </div>

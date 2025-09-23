@@ -30,7 +30,7 @@ const SectionMain = ({ title, movies, isLarge = false }) => {
           ))}
         </div>
         
-        <button
+        {/* <button
           onClick={prevSlide}
           className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full cursor-pointer"
         >
@@ -42,7 +42,7 @@ const SectionMain = ({ title, movies, isLarge = false }) => {
           className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full cursor-pointer"
         >
           <ChevronRight className="h-5 w-5" />
-        </button>
+        </button> */}
       </div>
     </div>
   );

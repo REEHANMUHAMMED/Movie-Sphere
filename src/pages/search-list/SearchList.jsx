@@ -57,116 +57,6 @@ const SearchList = () => {
     );
   }
 
-  // return (
-  //   <div className="min-h-screen bg-gray-900">
-  //     {/* Navigation */}
-  //     <HeaderSection />
-
-  //     {/* Hero Section with Search */}
-  //     <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 py-20">
-  //       <div className="max-w-2xl mx-auto px-6">
-  //         <div className="bg-gray-700 rounded-lg p-8 shadow-2xl">
-  //           <div className="text-center mb-8">
-  //             <div className="flex items-center justify-center space-x-2 mb-4">
-  //               <div className="text-4xl">🎬</div>
-  //               <h1 className="text-4xl font-bold text-white">
-  //                 <span className="text-red-600">Movie</span>Sphere 
-  //               </h1>
-  //             </div>
-  //           </div>
-            
-  //           <form onSubmit={handleSearch} className="space-y-4">
-  //             <div className="relative">
-  //               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-  //                 <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-  //                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-  //                 </svg>
-  //               </div>
-  //               <input
-  //                 type="text"
-  //                 placeholder="Search movies..."
-  //                 value={searchTerm}
-  //                 onChange={(e) => setSearchTerm(e.target.value)}
-  //                 className="w-full pl-10 pr-4 py-3 bg-gray-600 text-white placeholder-gray-400 rounded-lg border border-gray-600 focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors"
-  //               />
-  //             </div>
-  //             <button
-  //               type="submit"
-  //               className="w-full bg-red-600 hover:bg-red-800 hover:text-white-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 transform hover:scale-[1.02]"
-  //             >
-  //               Search
-  //             </button>
-  //           </form>
-  //         </div>
-  //       </div>
-  //     </div>
-
-  //     {/* Search Results */}
-  //     <div className="max-w-7xl mx-auto px-6 py-12">
-  //       {searchTerm && (
-  //         <div className="mb-8">
-  //           <h2 className="text-2xl font-bold text-white">
-  //             Search Results for: <span className="text-red-500">{searchTerm.toUpperCase()}</span>
-  //           </h2>
-  //           <p className="text-gray-400 mt-2">Found {filteredMovies.length} movies</p>
-  //         </div>
-  //       )}
-
-  //       {!searchTerm && (
-  //         <div className="text-center py-12">
-  //           <h2 className="text-2xl font-bold text-white mb-4">Your Search Results Will Appear Below</h2>
-  //           <p className="text-gray-400">Try searching for "red" to see sample results</p>
-  //         </div>
-  //       )}
-
-  //       {searchTerm && filteredMovies.length === 0 && (
-  //         <div className="text-center py-12">
-  //           <h2 className="text-2xl font-bold text-white mb-4">No Results Found</h2>
-  //           <p className="text-gray-400">Try searching for different keywords</p>
-  //         </div>
-  //       )}
-
-  //       {filteredMovies.length > 0 && (
-  //         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-  //           {filteredMovies.map((movie) => (
-  //             <div
-  //               key={movie.id}
-  //               onClick={() => handleMovieClick(movie.id)}
-  //               className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer group"
-  //             >
-  //               <div className="relative">
-  //                 <img
-  //                   src={movie.poster}
-  //                   alt={movie.title}
-  //                   className="w-full h-80 object-cover group-hover:opacity-90 transition-opacity"
-  //                   onError={(e) => {
-  //                     e.target.src = 'https://via.placeholder.com/300x450/374151/9CA3AF?text=No+Image';
-  //                   }}
-  //                 />
-  //                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-  //               </div>
-  //               <div className="p-4">
-  //                 <h3 className="text-white font-bold text-lg mb-2 group-hover:text-red-500 transition-colors">
-  //                   {movie.title}
-  //                 </h3>
-  //                 <div className="flex justify-between items-center text-sm text-gray-400">
-  //                   <span>{movie.year}</span>
-  //                   <div className="flex items-center space-x-1">
-  //                     <span className="text-yellow-400">★</span>
-  //                     <span>IMDb: {movie.imdbRating}</span>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       )}
-  //     </div>
-
-      
-  //   </div>
-  // );
-
 return (
   <div 
     className="min-h-screen relative overflow-hidden"
@@ -197,9 +87,14 @@ return (
             <div className="text-center mb-8 sm:mb-12">
               <div className="flex items-center justify-center space-x-3 mb-6">
                 <div className="text-3xl sm:text-4xl md:text-5xl animate-bounce">🎬</div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
+                {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
                   <span className="text-red-500 drop-shadow-lg">Movie</span>Sphere 
-                </h1>
+                </h1> */}
+                <img 
+  className="w-24 sm:w-32 md:w-40 lg:w-30 h-auto" 
+  src="src/components/header-section/logo.png" 
+  alt="Logo"
+/>
               </div>
               <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto drop-shadow-sm">
                 Discover your next favorite movie from our extensive collection
@@ -255,9 +150,9 @@ return (
           </div>
         )}
 
-        {/* Empty State - No Search */}
+        {/* Empty State - No Search */} 
         {!searchTerm && (
-          <div className="text-center py-16 sm:py-20 lg:py-24 bg-black/30 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/10">
+          <div className="text-center mb-10 lg:mb-24 py-10 sm:py-20 lg:py-10 bg-black/30 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/10">
             <div className="max-w-md mx-auto px-4">
               <div className="text-6xl sm:text-7xl lg:text-8xl mb-6 opacity-60">🔍</div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 drop-shadow-lg">
@@ -297,7 +192,7 @@ return (
 
         {/* Movie Results Grid */}
         {filteredMovies.length > 0 && (
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {filteredMovies.map((movie, index) => (
               <div
                 key={movie.id}
@@ -323,13 +218,13 @@ return (
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-red-600/90 backdrop-blur-sm rounded-full p-3 sm:p-4 transform scale-75 group-hover:scale-100 transition-transform duration-300">
                       <svg className="h-6 w-6 sm:h-8 sm:w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     </div>
-                  </div>
+                  </div> */}
                   
                   {/* Rating Badge */}
                   <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/70 backdrop-blur-sm text-yellow-400 px-2 py-1 rounded-lg text-xs sm:text-sm font-semibold border border-yellow-400/30">
@@ -488,12 +383,6 @@ return (
     `}</style>
   </div>
 );
-
-
-
-
-
-
 
 
 };

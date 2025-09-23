@@ -63,6 +63,7 @@ return (
     <div className="relative z-10">
       <HeaderSection />
       <HeroSection />
+ 
 
       {/* Main Content with Glass Effect Background */}
       <div className="relative">
@@ -77,7 +78,7 @@ return (
             </div>
             
             {/* Scrollable Cards Container */}
-            <div className="overflow-x-auto pb-4">
+            <div className="overflow-x-auto py-2 px-2">
               <div className="flex space-x-3 sm:space-x-4 min-w-max">
                 {recentlyUpdated.map((item, index) => (
                   <div 

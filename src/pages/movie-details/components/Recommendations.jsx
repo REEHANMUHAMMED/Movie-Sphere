@@ -1,42 +1,7 @@
 import 'lucide-react';
 
 const Recommendation = ({ recommendations }) => {
-  // return (
-  //   <div className="px-6 py-8">
-  //     <h2 className="text-white text-xl font-bold mb-6">You may also like</h2>
-      
-  //     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-  //       {recommendations.map((item, index) => (
-  //         <div key={index} className="relative group cursor-pointer"  style={{ backgroundImage: item.poster ? `url(${item.poster})` : undefined }}> 
-  //           <div className="relative overflow-hidden rounded-lg">
-  //             <div className="h-64 flex items-center justify-center">
-  //               <div className="text-red-400 text-center">
-  //                 <div className="text-xl font-bold mb-2">{item.title}</div>
-  //               </div>
-  //             </div>
-              
-  //             <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
-             
-  //             </div>
-              
-  //             <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs">
-  //               {item.imdbRating}
-  //             </div>
-              
-  //             <div className="absolute top-2 right-2 bg-opacity-70 text-white px-2 py-1 rounded text-xs">
-  //               {item.year}
-  //             </div>
-  //           </div>
-            
-  //           <div className="mt-2">
-  //             <h3 className="text-white font-medium text-sm">{item.title}</h3>
-  //           </div>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
-
+ 
 return (
   <div className="relative overflow-hidden">
     {/* Same Multi-layer Background Overlay System */}
@@ -81,22 +46,10 @@ return (
                 {/* Content Overlay for Better Text Readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
                 
-                {/* Movie Title Overlay (shown when no poster or as backup) */}
-                <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <div className={`text-center transition-opacity duration-300 ${item.poster ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
-                    <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl drop-shadow-lg leading-tight">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
+                
 
                 {/* Hover Play Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                  <div className="bg-red-600 hover:bg-red-700 rounded-full p-4 sm:p-6 transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-2xl">
-                    <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">              
                 </div>
                 
                 {/* Rating Badge */}
