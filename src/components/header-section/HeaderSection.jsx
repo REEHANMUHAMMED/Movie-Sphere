@@ -70,9 +70,6 @@ const HeaderSection = ({ onSearch }) => {
   }}
   className="text-red-600 font-bold text-lg sm:text-xl lg:text-2xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400"
 >
-
-
-
   <img  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto"  src={logo} alt="Logo" />
 
 </div>
@@ -171,9 +168,14 @@ const HeaderSection = ({ onSearch }) => {
                   </button>
                   
                   {/* Logo */}
-                  <div className="text-red-600 font-bold text-xl sm:text-2xl text-center mb-8 sm:mb-4 transition-all duration-300 ease-out cursor-pointer hover:scale-105 hover:text-red-400">
-                    MovieSphere
+                  <div  onClick={(e) => {
+    e.preventDefault();
+    console.log('Desktop logo clicked'); // Remove after testing
+    window.location.href = '/';
+  }} className="flex items-center justify-center mb-8 sm:mb-4 transition-all duration-300 ease-out cursor-pointer hover:scale-105 cursor-pointer">
+                  <img  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto"  src={logo} alt="Logo" />
                   </div>
+                 
 
                  
 

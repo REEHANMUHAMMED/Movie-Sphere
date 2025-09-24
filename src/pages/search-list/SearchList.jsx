@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import HeaderSection from '../../components/header-section/HeaderSection.jsx';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../../components/header-section/logo.png';
 
 
 const SearchList = () => {
@@ -90,11 +91,7 @@ return (
                 {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
                   <span className="text-red-500 drop-shadow-lg">Movie</span>Sphere 
                 </h1> */}
-                <img 
-  className="w-24 sm:w-32 md:w-40 lg:w-30 h-auto" 
-  src="src/components/header-section/logo.png" 
-  alt="Logo"
-/>
+   <img  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto"  src={logo} alt="Logo" />
               </div>
               <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto drop-shadow-sm">
                 Discover your next favorite movie from our extensive collection

@@ -281,7 +281,7 @@ const Comments= () => {
                 <button
                   onClick={handleSubmitComment}
                   disabled={!newComment.trim()}
-                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 disabled:from-gray-600 disabled:to-gray-700 disabled:cursor-not-allowed text-white font-semibold px-4 xs:px-6 py-2.5 xs:py-3 sm:py-4 rounded-lg xs:rounded-xl transition-all duration-500 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 hover:brightness-110 active:scale-95 disabled:hover:scale-100 disabled:hover:brightness-100 whitespace-nowrap text-sm xs:text-base min-h-[44px] touch-manipulation relative overflow-hidden group"
+                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 disabled:from-gray-600 disabled:to-gray-700 cursor-pointer text-white font-semibold px-4 xs:px-6 py-2.5 xs:py-3 sm:py-4 rounded-lg xs:rounded-xl transition-all duration-500 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-red-500/50 hover:brightness-110 active:scale-95 disabled:hover:scale-100 disabled:hover:brightness-100 whitespace-nowrap text-sm xs:text-base min-h-[44px] touch-manipulation relative overflow-hidden group"
                 >
                   <span className="relative z-10 transition-all duration-300 group-hover:tracking-wide">Post Comment</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-red-400/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
@@ -343,14 +343,14 @@ const Comments= () => {
                     </p>
                     
                     {/* Comment Actions */}
-                    <div className="flex items-center gap-3 xs:gap-4 sm:gap-6">
+                    <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 ">
                       <button 
                         onClick={() => handleVote(comment.id, 'like')}
                         className={`flex items-center gap-1.5 xs:gap-2 transition-all duration-200 group/like min-h-[44px] px-2 py-2 rounded-lg hover:bg-white/5 ${
                           comment.userVote === 'like' ? 'text-green-400' : 'text-gray-400 hover:text-green-400'
                         }`}
                       >
-                        <ThumbsUp className="h-3.5 w-3.5 xs:h-4 xs:w-4 sm:h-5 sm:w-5 group-hover/like:scale-110 transition-transform duration-200" />
+                        <ThumbsUp className="h-3.5 w-3.5 xs:h-4 xs:w-4 sm:h-5 sm:w-5 group-hover/like:scale-110 transition-transform duration-200 cursor-pointer" />
                         <span className="text-xs xs:text-sm font-medium">{comment.likes}</span>
                       </button>
                       
@@ -360,15 +360,15 @@ const Comments= () => {
                           comment.userVote === 'dislike' ? 'text-red-400' : 'text-gray-400 hover:text-red-400'
                         }`}
                       >
-                        <ThumbsDown className="h-3.5 w-3.5 xs:h-4 xs:w-4 sm:h-5 sm:w-5 group-hover/dislike:scale-110 transition-transform duration-200" />
+                        <ThumbsDown className="h-3.5 w-3.5 xs:h-4 xs:w-4 sm:h-5 sm:w-5 group-hover/dislike:scale-110 transition-transform duration-200 cursor-pointer" />
                         {comment.dislikes > 0 && <span className="text-xs xs:text-sm font-medium">{comment.dislikes}</span>}
                       </button>
                       
                       <button 
                         onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
-                        className="text-gray-400 hover:text-blue-400 text-xs xs:text-sm font-medium transition-colors duration-200 hover:underline min-h-[44px] px-2 py-2 rounded-lg hover:bg-white/5"
+                        className="text-gray-400 hover:text-blue-400 text-xs xs:text-sm font-medium transition-colors duration-200 hover:underline min-h-[44px] px-2 py-2 rounded-lg hover:bg-white/5 cursor-pointer"
                       >
-                        Reply
+                      Reply
                       </button>
                       
                       {/* More Options - FIXED DROPDOWN POSITIONING */}
@@ -486,7 +486,7 @@ const Comments= () => {
           <div className="text-center mt-6 xs:mt-8 sm:mt-12">
             <button 
               onClick={handleLoadMore}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium px-4 xs:px-6 sm:px-8 py-3 xs:py-4 rounded-lg xs:rounded-xl transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:border-red-400/50 text-sm xs:text-base min-h-[44px] touch-manipulation shadow-lg hover:shadow-xl"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium px-4 xs:px-6 sm:px-8 py-3 xs:py-4 rounded-lg xs:rounded-xl transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:border-red-400/50 text-sm xs:text-base min-h-[44px] touch-manipulation shadow-lg hover:shadow-xl  cursor-pointer"
             >
               Load More Comments ({comments.length - visibleComments} more)
             </button>
