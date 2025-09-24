@@ -4,6 +4,7 @@ import MovieDetails from './pages/movie-details/MovieDetails.jsx';
 import SearchList from './pages/search-list/SearchList.jsx';
 import Signup from './pages/signup-page/Signup.jsx';
 import WatchNow from './pages/watchnow/WatchNow.jsx';
+import ViewAll from './pages/viewall/ViewAll.jsx';
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/search" element={<SearchList/>} />
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/watch" element={<WatchNow/>} />
+        <Route path ="/viewall" element={<ViewAll/>} />
         
       </Routes>    
        </>

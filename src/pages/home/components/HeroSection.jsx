@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {Star, ChevronLeft, ChevronRight, } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+    const navigate = useNavigate();
 
   const heroMovies = [
     {
@@ -147,9 +150,9 @@ return (
 
         {/* Enhanced Action Buttons */}
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
-          <button     onClick={() => navigate("/watchnow")}
-            // onClick={() => alert(`⏰ Added to Watch Later: ${currentMovie.title}`)}
-            className="group bg-red-600 hover:bg-red-700 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50"
+          <button onClick={() => navigate("/watch")}
+           
+            className="group bg-red-600 hover:bg-red-700 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer"
           >
             <svg
               className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
@@ -161,9 +164,9 @@ return (
             <span>Watch Now</span>
           </button>
           
-          <button
-            onClick={() => alert(`📋 Added to Watchlist: ${currentMovie.title}`)}
-            className="group bg-black/40 backdrop-blur-sm hover:bg-black/60 border border-white/20 hover:border-white/40 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105"
+          <button            
+             onClick={() => navigate("/watchlater")}
+            className="group bg-black/40 backdrop-blur-sm hover:bg-black/60 border border-white/20 hover:border-white/40 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 cursor-pointer"
           >
             <svg
               className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
