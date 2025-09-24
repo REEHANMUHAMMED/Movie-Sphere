@@ -104,7 +104,7 @@ const HeaderSection = ({ onSearch }) => {
               </div>
               
               <div className="text-white hover:text-red-500 cursor-pointer transition-all duration-300 ease-out hover:scale-105 relative group text-sm xl:text-base">
-                <span className="relative z-10">Login/Signup</span>
+                <span  onClick={() => navigate("/signup")} className="relative z-10">Login/Signup</span>
                 <span className="absolute inset-0 -m-2 rounded-lg bg-red-500/10 opacity-0 transition-all duration-300 group-hover:opacity-100 blur-sm"></span>
               </div>
             </div>
