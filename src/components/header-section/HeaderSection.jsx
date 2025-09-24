@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import './header.css'
+import './header.css';
+import logo from "./logo.png";
 
 const HeaderSection = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -70,11 +71,9 @@ const HeaderSection = ({ onSearch }) => {
   className="text-red-600 font-bold text-lg sm:text-xl lg:text-2xl flex-shrink-0 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:text-red-400"
 >
 
-<img 
-  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto" 
-  src="src/components/header-section/logo.png" 
-  alt="Logo"
-/>
+
+
+  <img  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto"  src={logo} alt="Logo" />
 
 </div>
 

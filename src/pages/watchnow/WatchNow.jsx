@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Settings, SkipBack, SkipForward, RotateCcw, RotateCw, Share2, Download, Heart, Plus, Star, Clock, Users, MessageCircle } from 'lucide-react';
 import HeaderSection from '../../components/header-section/HeaderSection';
 
-<HeaderSection/>
+
 const WatchNow = () => {
   const videoRef = React.useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
