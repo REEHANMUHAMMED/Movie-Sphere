@@ -76,7 +76,7 @@ return (
           </div>
         </div>
       </div>
-       <h1 className="text-red-400 text-2xl font-bold ms-40 my-8">{title}</h1>
+       <h1 className="text-red-400 text-2xl font-bold text-center my-8">{title}</h1>
       {/* Search Results Section */}
        {movies.length > 0 ? (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
