@@ -17,7 +17,7 @@ const SectionMain = ({ title, movies, isLarge = false }) => {
 
   return (
     <div className="px-6 py-6 z-10 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-left justify-between mb-6">
         <h2 className="text-red-400 text-xl font-bold">{title}</h2>
         <button onClick={() => navigate("/viewall")} className="text-gray-400 hover:text-red-400 flex items-center text-sm cursor-pointer ">
           View all
@@ -48,8 +48,17 @@ const SectionMain = ({ title, movies, isLarge = false }) => {
       </div>
     </div>
   );
+
+
+
+
+
+
+
+
 };
 
 export default SectionMain
+
 
 

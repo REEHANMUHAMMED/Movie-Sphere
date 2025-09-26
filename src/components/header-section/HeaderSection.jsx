@@ -175,11 +175,7 @@ const HeaderSection = ({ onSearch }) => {
   }} className="flex items-center justify-center mb-8 sm:mb-4 transition-all duration-300 ease-out cursor-pointer hover:scale-105 cursor-pointer">
                   <img  className="w-24 sm:w-32 md:w-40 lg:w-38 h-auto"  src={logo} alt="Logo" />
                   </div>
-                 
-
-                 
-
-                 
+                  
 <div className="relative w-full group">
   <input
     type="text"
