@@ -163,29 +163,13 @@ return (
             </svg>
             <span>Watch Now</span>
           </button>
-          
-          <button            
-             onClick={() => navigate("/watchlater")}
-            className="group bg-black/40 backdrop-blur-sm hover:bg-black/60 border border-white/20 hover:border-white/40 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 cursor-pointer"
-          >
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 4v16m8-8H4" />
-            </svg>
-            <span className="hidden sm:inline">Add to Watchlist</span>
-            <span className="sm:hidden">Watchlist</span>
-          </button>
+         
         </div>
       </div>
     </div>
 
     {/* Enhanced Slide Indicators */}
-    <div className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10">
+    <div className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
       {heroMovies.map((_, index) => (
         <button
           key={index}

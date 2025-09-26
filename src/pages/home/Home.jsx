@@ -23,7 +23,7 @@ const Home = () => {
     axios.get('https://fooapi.com/api/movies')
     .then(response => {
       const movieData = response.data.data;
-      setTrendingMovies(movieData.slice(0, 5));
+      setTrendingMovies(movieData.slice(0, 4));
       setNewMovies(movieData.slice(35, 41));
       setNewSeries(movieData.slice(11, 17));
       setRecommendedContent(movieData.slice(17, 23));
@@ -79,7 +79,7 @@ return (
             
             {/* Scrollable Cards Container */}
             <div className="overflow-x-auto py-2 px-2">
-              <div className="flex space-x-3 sm:space-x-4 min-w-max">
+              <div className="flex space-x-3 sm:space-x-4 min-w-max scrollbar-hide">
                 {recentlyUpdated.map((item, index) => (
                   <div 
                     key={index}
@@ -133,7 +133,7 @@ return (
 
         {/* Section Components with Enhanced Backgrounds */}
         <div className="space-y-8 sm:space-y-12 lg:space-y-16">
-          <div className="bg-black/30 backdrop-blur-sm border-t border-white/10">
+          <div className="bg-black/30 backdrop-blur-sm border-t border-white/10 scrollbar-hide">
             <SectionMain title="Trending" movies={trendingMovies} isLarge={true} />
           </div>
           

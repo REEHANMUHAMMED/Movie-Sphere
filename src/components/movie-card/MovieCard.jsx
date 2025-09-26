@@ -8,12 +8,12 @@ const MovieCard = ({ movie, isLarge = false, image }) => {
   return (
     <div 
       onClick={() => { navigate(`/movie/${movie.id}`) }} 
-      className={`relative group cursor-pointer ${isLarge ? 'w-80' : 'w-48'}`}
+      className={`relative group cursor-pointer ${isLarge ? 'min-w-72' : 'min-w-48'}`}
     >
       <div className="relative overflow-hidden rounded-lg">
         {/* Background image */}
         <div 
-          className={`${isLarge ? 'h-48' : 'h-72'} bg-gray-800 flex items-center justify-center bg-cover bg-center` } 
+          className={`${isLarge ? 'h-48' : 'h-72'} bg-top bg-gray-800 flex items-center justify-center bg-cover bg-center` } 
           style={{ backgroundImage: movie.poster ? `url(${movie.poster})` : undefined }}
         >
           {/* Fallback if no image */}

@@ -77,7 +77,7 @@ const HeaderSection = ({ onSearch }) => {
             {/* Desktop Navigation - Hidden on mobile/tablet */}
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 flex-1 justify-center">
               <div className="flex space-x-4 xl:space-x-6">
-                {["Home", "Genre", "Country", "Movies", "Series", "Animation"].map((item) => (
+                {["Home", "Genre", "Country", "Movies", "Series"].map((item) => (
                   <a 
                     key={item}
                     href="/" 
@@ -199,7 +199,7 @@ const HeaderSection = ({ onSearch }) => {
 
                   {/* Navigation Links - responsive spacing */}
                   <nav className="flex flex-col space-y-1 mt-2 sm:mt-4">
-                    {["Home", "Genre", "Country", "Movies", "Series", "Animation"].map((item, index) => (
+                    {["Home", "Genre", "Country", "Movies", "Series"].map((item, index) => (
                       <a 
                         key={item}
                         href="#" 

@@ -1,15 +1,19 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import HeaderSection from '../../components/header-section/HeaderSection.jsx';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../../components/header-section/logo.png';
 
 
 const ViewAll = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentRoute, setCurrentRoute] = useState('/');
+  
   const [movies,setMovies] = useState([])
-  const navigate = useNavigate()
+  const navigate = useNavigate(); 
+  const {state} = useLocation(); 
+  const title = state.title;
+
+
+ 
 
     useEffect(() => {
     axios.get('https://fooapi.com/api/movies')
@@ -21,13 +25,7 @@ const ViewAll = () => {
    
 
 
-  // Filter movies based on search term
-  const filteredMovies = useMemo(() => {
-    if (!searchTerm) return movies;
-    return movies.filter(movie =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm,movies]);
+
 
   const handleMovieClick = (movieId) => {
     navigate(`/movie/${movieId}`);
@@ -44,14 +42,8 @@ const ViewAll = () => {
 
 return (
   <div 
-    className="min-h-screen relative overflow-hidden"
-    style={{
-      backgroundImage: `url('https://images.unsplash.com/photo-1489599904472-c91b5c2f8b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`, // Replace with your preferred background
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed"
-    }}
+    className="relative overflow-hidden"
+    
   >
     {/* Same Multi-layer Overlay System as Movie Info */}
     <div className="absolute inset-0 bg-black/70 z-0"></div>
@@ -84,24 +76,22 @@ return (
           </div>
         </div>
       </div>
-
+       <h1 className="text-red-400 text-2xl font-bold ms-40 my-8">{title}</h1>
       {/* Search Results Section */}
+       {movies.length > 0 ? (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
         
-     
-
-
-        {/* Movie Results Grid */}
-        {filteredMovies.length > 0 && (
+             {/* Movie Results Grid */}
+        {movies.length > 0 && (
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {filteredMovies.map((movie, index) => (
+            {movies.map((movie, index) => (
               <div
                 key={movie.id}
                 onClick={() => handleMovieClick(movie.id)}
                 className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 cursor-pointer hover:border-red-400/50"
                 style={{ 
                   animationDelay: `${index * 100}ms`,
-                  animation: 'fadeInUp 0.6s ease-out forwards'
+                  
                 }}
               >
                 {/* Movie Poster */}
@@ -119,13 +109,13 @@ return (
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Play Button Overlay */}
-                  {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-red-600/90 backdrop-blur-sm rounded-full p-3 sm:p-4 transform scale-75 group-hover:scale-100 transition-transform duration-300">
                       <svg className="h-6 w-6 sm:h-8 sm:w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     </div>
-                  </div> */}
+                  </div>
                   
                   {/* Rating Badge */}
                   <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/70 backdrop-blur-sm text-yellow-400 px-2 py-1 rounded-lg text-xs sm:text-sm font-semibold border border-yellow-400/30">
@@ -159,7 +149,7 @@ return (
             ))}
           </div>
         )}
-      </div>
+      </div>):<div></div>}
     </div>
 
     {/* Bottom Gradient Fade */}
@@ -167,16 +157,7 @@ return (
 
     {/* Professional Responsive Styles */}
     <style jsx>{`
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    
 
       /* Ultra small devices */
       @media (max-width: 320px) {

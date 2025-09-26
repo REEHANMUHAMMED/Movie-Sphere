@@ -1,7 +1,9 @@
 import { Heart, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Movie Info Section
-const MovieInfo = ({ movie }) => {
+const MovieInfo = ({ movie }) => {   
+   const navigate = useNavigate();
   
 return (
   <div 
@@ -132,13 +134,13 @@ return (
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <button className="flex-1 sm:flex-none bg-red-600 hover:bg-red-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50">
+        <div onClick={() => navigate("/watch")} className="flex flex-col sm:flex-row gap-4 pt-4"> 
+          <button className="flex-1 sm:flex-none bg-red-600 hover:bg-red-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer">
             Watch Now
           </button>
-          <button className="flex-1 sm:flex-none bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 hover:bg-white/20 hover:scale-105">
+          {/* <button className="flex-1 sm:flex-none bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 hover:bg-white/20 hover:scale-105">
             Add to Watchlist
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
