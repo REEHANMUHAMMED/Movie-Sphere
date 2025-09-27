@@ -100,7 +100,7 @@ return (
     <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
 
     {/* Foreground Content with Enhanced Typography */}
-    <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 mt-40 sm:mt-0">
       <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-left">
         
         {/* Enhanced Title with Better Readability */}
