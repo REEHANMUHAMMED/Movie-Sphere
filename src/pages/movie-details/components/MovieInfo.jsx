@@ -148,48 +148,7 @@ return (
     {/* Bottom Gradient Fade */}
     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 to-transparent pointer-events-none"></div>
     
-    {/* Custom Responsive Styles */}
-    <style jsx>{`
-      /* Ultra small devices (320px and below) */
-      @media (max-width: 320px) {
-        .movie-title {
-          font-size: 1.75rem;
-          line-height: 1.2;
-        }
-        .movie-poster {
-          width: 240px;
-          height: 320px;
-        }
-      }
-
-      /* Small mobile landscape */
-      @media (max-height: 500px) and (orientation: landscape) {
-        .movie-container {
-          padding-top: 2rem;
-          padding-bottom: 2rem;
-        }
-        .movie-poster {
-          width: 200px;
-          height: 280px;
-        }
-      }
-
-      /* Tablet landscape optimization */
-      @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-        .movie-details {
-          max-height: 80vh;
-          overflow-y: auto;
-        }
-      }
-
-      /* High DPI displays */
-      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        .movie-backdrop {
-          background-size: cover;
-          background-attachment: scroll; /* Better performance on mobile */
-        }
-      }
-    `}</style>
+   
   </div>
 );
 

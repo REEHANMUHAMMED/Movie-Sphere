@@ -18,7 +18,7 @@ const MovieCard = ({ movie, isLarge = false, image }) => {
         >
           {/* Fallback if no image */}
           {!movie.poster && (
-            <div className="text-white text-center">
+            <div className="text-white text-center bg-red-600">
               <div className="text-lg font-bold mb-2">{movie.title}</div>
               {movie.year && (
                 <div className="text-xs text-gray-300">{movie.year}</div>

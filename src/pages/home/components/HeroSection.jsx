@@ -76,130 +76,6 @@ const currentMovie = heroMovies[currentSlide];
 
 
 
-// return (
-//   <div className="relative h-[100vh] sm:h-[550px] md:h-[650px] lg:h-[550px] xl:h-[650px] 2xl:h-[700px] flex items-center justify-start overflow-hidden">
-//     {/* Background Image Layer with Enhanced Transitions */}
-//     <div
-//       className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105"
-//       style={{
-//         backgroundImage: `url(${currentMovie.imageUrl})`,
-//         backgroundPosition: "center center",
-//         backgroundSize: "cover",
-//         backgroundRepeat: "no-repeat",
-//         backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
-//       }}
-//     />
-
-//     {/* Professional Multi-Layer Overlay System - Same as Movie Detail Page */}
-//     <div className="absolute inset-0 bg-black/10 transition-opacity duration-1000"></div>
-//     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/70 transition-opacity duration-1000"></div>
-//     <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent transition-opacity duration-1000"></div>
-    
-//     {/* Additional Cinematic Overlays */}
-//     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80"></div>
-//     <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
-
-//     {/* Foreground Content with Enhanced Typography */}
-//     <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 ">
-//       <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-left">
-        
-//         {/* Enhanced Title with Better Readability */}
-//         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-2xl transition-all duration-800 ease-out transform translate-y-0 opacity-100">
-//           {currentMovie.title}
-//         </h1>
-
-//         {/* Enhanced Genre + Info Section with Better Cards */}
-//         <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 md:mb-6 transition-all duration-600 delay-200 ease-out transform translate-y-0 opacity-100">
-//           {currentMovie.genres.map((genre, index) => (
-//             <span
-//               key={index}
-//               className="bg-black/40 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ease-out hover:bg-red-600/80 hover:border-red-500/50 hover:scale-105"
-//             >
-//               {genre}
-//             </span>
-//           ))}
-          
-//           {/* Rating Badge */}
-//           <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center space-x-1 sm:space-x-2">
-//             <svg
-//               className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current"
-//               viewBox="0 0 20 20"
-//             >
-//               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-//             </svg>
-//             <span className="text-white font-semibold text-xs sm:text-sm">{currentMovie.rating}</span>
-//           </div>
-          
-//           {/* Year Badge */}
-//           <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
-//             <span className="text-white font-medium text-xs sm:text-sm">{currentMovie.year}</span>
-//           </div>
-          
-//           {/* Duration Badge - Hidden on small screens */}
-//           <div className="hidden sm:flex bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
-//             <span className="text-white font-medium text-xs sm:text-sm">{currentMovie.duration}</span>
-//           </div>
-//         </div>
-
-//         {/* Enhanced Description with Better Readability */}
-//         <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
-//           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-4 drop-shadow-lg">
-//             {currentMovie.description}
-//           </p>
-//         </div>
-
-//         {/* Enhanced Action Buttons */}
-//         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
-//           <button onClick={() => navigate("/watch")}
-           
-//             className="group bg-red-600 hover:bg-red-700 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer"
-//           >
-//             <svg
-//               className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
-//               fill="currentColor"
-//               viewBox="0 0 24 24"
-//             >
-//               <path d="M8 5v14l11-7z" />
-//             </svg>
-//             <span>Watch Now</span>
-//           </button>
-         
-//         </div>
-//       </div>
-//     </div>
-
-//     {/* Enhanced Slide Indicators */}
-//     <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
-//       {heroMovies.map((_, index) => (
-//         <button
-//           key={index}
-//           onClick={() => setCurrentSlide(index)}
-//           className={`transition-all duration-500 ease-out hover:scale-125 ${
-//             index === currentSlide
-//               ? "w-8 h-3 sm:w-10 sm:h-4 bg-red-500 rounded-full shadow-lg shadow-red-500/50"
-//               : "w-3 h-3 sm:w-4 sm:h-4 bg-white/50 hover:bg-white/80 rounded-full backdrop-blur-sm"
-//           }`}
-//         />
-//       ))}
-//     </div>
-
-//     {/* Enhanced Progress Bar */}
-//     <div className="absolute bottom-0 left-0 w-full h-1 sm:h-1.5 bg-black/40 backdrop-blur-sm z-10">
-//       <div
-//         className="h-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg shadow-red-500/30 transition-all duration-300 ease-linear"
-//         style={{
-//           width: `${((currentSlide + 1) / heroMovies.length) * 100}%`,
-//         }}
-//       />
-//     </div>
-
-//     {/* Bottom Fade Effect */}
-//     <div className="absolute bottom-0 left-0 right-0  h-8 sm:h-16 bg-gradient-to-t from-black/90 to-transparent pointer-events-none"></div>
-
-//     {/* Enhanced Responsive Styles */}
-  
-//   </div>
-// );
 
 return (
   <div className="relative h-[100vh] sm:h-[550px] md:h-[650px] lg:h-[550px] xl:h-[650px] 2xl:h-[700px] flex items-center justify-start overflow-hidden">
@@ -229,7 +105,7 @@ return (
       <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-left">
         
         {/* Enhanced Title with Better Readability */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-2xl transition-all duration-800 ease-out transform translate-y-0 opacity-100">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mt-40 sm:mt-0 md:mt-0 lg:mt-0  mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-2xl transition-all duration-800 ease-out transform translate-y-0 opacity-100">
           {currentMovie.title}
         </h1>
 
@@ -267,34 +143,41 @@ return (
         </div>
 
         {/* Enhanced Description with Better Readability */}
-        <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
+        {/* <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-4 drop-shadow-lg">
             {currentMovie.description}
           </p>
-        </div>
+        </div> */}
+        {/* Enhanced Description with Better Readability */}
+<div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-10 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
+  <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-4 drop-shadow-lg">
+    {currentMovie.description}
+  </p>
+</div>
 
         {/* Enhanced Action Buttons */}
-        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
-          <button onClick={() => navigate("/watch")}
-           
-            className="group bg-red-600 hover:bg-red-700 text-white px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer"
-          >
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            <span>Watch Now</span>
-          </button>
-         
-        </div>
+       
+     <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
+  <button 
+    onClick={() => navigate("/watch")}
+    className="group bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer"
+  >
+    <svg
+      className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 transition-transform duration-300 group-hover:scale-110"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M8 5v14l11-7z" />
+    </svg>
+    <span>Watch Now</span>
+  </button>
+</div>
+
       </div>
     </div>
 
     {/* Enhanced Slide Indicators - REDUCED BOTTOM SPACING */}
-    <div className="absolute bottom-20 sm:bottom-16 md:bottom-25 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
+    <div className="absolute bottom-10 sm:bottom-3 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
       {heroMovies.map((_, index) => (
         <button
           key={index}
