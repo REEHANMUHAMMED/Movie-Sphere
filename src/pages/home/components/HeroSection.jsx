@@ -166,7 +166,7 @@ return (
     </div>
 
     {/* Enhanced Slide Indicators - REDUCED BOTTOM SPACING */}
-    <div className="absolute bottom-35 sm:bottom-3 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
+    <div className="absolute bottom-50 sm:bottom-3 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
       {heroMovies.map((_, index) => (
         <button
           key={index}
