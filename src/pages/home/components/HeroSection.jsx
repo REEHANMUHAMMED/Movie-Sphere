@@ -73,18 +73,14 @@ const currentMovie = heroMovies[currentSlide];
     return () => clearInterval(timer);
   }, []);  
 
-
-
-
-
 return (
-  <div className="relative h-[100vh] sm:h-[550px] md:h-[650px] lg:h-[550px] xl:h-[650px] 2xl:h-[700px] flex items-center justify-start overflow-hidden">
+  <div className="relative h-[100vh] sm:h-[550px] md:h-[650px] lg:h-[550px] xl:h-[650px] 2xl:h-[700px] flex items-center justify-center sm:justify-start overflow-hidden">
     {/* Background Image Layer with Enhanced Transitions */}
     <div
       className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out transform scale-105"
       style={{
         backgroundImage: `url(${currentMovie.imageUrl})`,
-        backgroundPosition: "center center",
+        backgroundPosition: "top center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
@@ -101,16 +97,16 @@ return (
     <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
 
     {/* Foreground Content with Enhanced Typography */}
-    <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 ">
-      <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-left">
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
+      <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-center sm:text-left mx-auto sm:mx-0">
         
         {/* Enhanced Title with Better Readability */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mt-40 sm:mt-0 md:mt-0 lg:mt-0  mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-2xl transition-all duration-800 ease-out transform translate-y-0 opacity-100">
+        <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-2xl transition-all duration-800 ease-out transform translate-y-0 opacity-100">
           {currentMovie.title}
         </h1>
 
         {/* Enhanced Genre + Info Section with Better Cards */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 md:mb-6 transition-all duration-600 delay-200 ease-out transform translate-y-0 opacity-100">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 md:mb-6 transition-all duration-600 delay-200 ease-out transform translate-y-0 opacity-100">
           {currentMovie.genres.map((genre, index) => (
             <span
               key={index}
@@ -143,41 +139,34 @@ return (
         </div>
 
         {/* Enhanced Description with Better Readability */}
-        {/* <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
+        <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-3 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-4 drop-shadow-lg">
             {currentMovie.description}
           </p>
-        </div> */}
-        {/* Enhanced Description with Better Readability */}
-<div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-10 sm:mb-6 md:mb-8 border border-white/10 transition-all duration-600 delay-300 ease-out transform translate-y-0 opacity-100">
-  <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-4 drop-shadow-lg">
-    {currentMovie.description}
-  </p>
-</div>
+        </div>
 
         {/* Enhanced Action Buttons */}
-       
-     <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
-  <button 
-    onClick={() => navigate("/watch")}
-    className="group bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer"
-  >
-    <svg
-      className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 transition-transform duration-300 group-hover:scale-110"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M8 5v14l11-7z" />
-    </svg>
-    <span>Watch Now</span>
-  </button>
-</div>
+        <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-4 transition-all duration-600 delay-400 ease-out transform translate-y-0 opacity-100">
+          <button 
+            onClick={() => navigate("/watch")}
+            className="group bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ease-out flex items-center justify-center hover:scale-105 hover:shadow-2xl hover:shadow-red-600/50 cursor-pointer"
+          >
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 transition-transform duration-300 group-hover:scale-110"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Watch Now</span>
+          </button>
+        </div>
 
       </div>
     </div>
 
     {/* Enhanced Slide Indicators - REDUCED BOTTOM SPACING */}
-    <div className="absolute bottom-10 sm:bottom-3 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
+    <div className="absolute bottom-30 sm:bottom-3 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10 scrollbar-hide">
       {heroMovies.map((_, index) => (
         <button
           key={index}
@@ -208,9 +197,6 @@ return (
 );
 
 
-
 };
-
-
 
 export default HeroSection;
