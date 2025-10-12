@@ -24,19 +24,18 @@ A dynamic movie database web application built with React, Tailwind CSS, and Axi
 
 ## Screenshots
 
-> Replace the placeholders with actual images.
 
-![Home Page]
+1. Home Page
 <img width="1887" height="849" alt="Screenshot 2025-10-12 214608" src="https://github.com/user-attachments/assets/98fe4290-aa4c-47d0-bd10-298779b80898" />
 
-Home page showcasing trending movies.
+2. Showcasing trending movies.
 <img width="1548" height="834" alt="Screenshot 2025-10-12 214629" src="https://github.com/user-attachments/assets/aaa80eb9-fc65-4d55-a461-df00c5096ebc" />
 
-![Search Results]
+3. Search Results Page
 Search results for a movie query.
 
 
-![Movie Details]
+4. Movie Details
 Detailed view of a selected movie.
 
 
