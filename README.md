@@ -33,9 +33,11 @@ A dynamic movie database web application built with React, Tailwind CSS, and Axi
 
 3. Search Results Page
 Search results for a movie query.
+<img width="1888" height="861" alt="image" src="https://github.com/user-attachments/assets/91cfec71-bca3-462d-89bd-ea546f0b2852" />
 
 
-4. Movie Details
+
+5. Movie Details
 Detailed view of a selected movie.
 
 
