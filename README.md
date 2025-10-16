@@ -27,21 +27,22 @@ A dynamic movie database web application built with React, Tailwind CSS, and Axi
 
 1. Home Page
 <img width="1887" height="849" alt="Screenshot 2025-10-12 214608" src="https://github.com/user-attachments/assets/98fe4290-aa4c-47d0-bd10-298779b80898" />
+<br>
 
 
 2. Showcasing trending movies.
 <img width="1548" height="834" alt="Screenshot 2025-10-12 214629" src="https://github.com/user-attachments/assets/aaa80eb9-fc65-4d55-a461-df00c5096ebc" />
-
+<br>
 
 3. Search Results Page
 Search results for a movie query.
 <img width="1888" height="861" alt="image" src="https://github.com/user-attachments/assets/91cfec71-bca3-462d-89bd-ea546f0b2852" />
-
+<br>
 
 5. Movie Details
 Detailed view of a selected movie.
 <img width="1892" height="862" alt="image" src="https://github.com/user-attachments/assets/e01469cc-4876-4475-a167-862c6cb913f9" />
-
+<br>
 
 
 
